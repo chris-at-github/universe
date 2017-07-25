@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
+	return view('Settlement.Index')
+		->with('game', [
+			'settlement' => app(\App\Repositories\SettlementRepository::class)->findBy(['uuid' => '58e729ec-3ecb-4ba9-8ad5-7d1a6bfac8e1'])->toArray()
+		]);
+});
 
-	$rep = app(\App\Repositories\SettlementRepository::class);
-	dd($rep->findBy(['uuid' => '58e729ec-3ecb-4ba9-8ad5-7d1a6bfac8e1']));
-
-	return view('Settlement.Index');
+Route::get('/settlement/{uuid}', function ($uuid) {
+	return response()->json(
+		app(\App\Repositories\SettlementRepository::class)->findBy(['uuid' => $uuid])->toArray()
+	);
 });

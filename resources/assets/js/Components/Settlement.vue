@@ -1,5 +1,6 @@
 <template>
-	<div class="settlement" v-bind:style="styleObject">
+	<div class="object" v-bind:style="styleObject">
+		<div class="object--header">{{name}}</div>
 	</div>
 </template>
 
@@ -11,7 +12,10 @@
 		},
 
 		data: function() {
-			return {}
+			return {
+				'uuid': '58e729ec-3ecb-4ba9-8ad5-7d1a6bfac8e1',
+				'name': 'Settlement S01'
+			}
 		},
 
 		computed: {

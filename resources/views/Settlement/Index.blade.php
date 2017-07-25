@@ -1,5 +1,7 @@
 @include('Partials.Header')
 
-Universe
+	<div id="universe">
+		<uv-settlement />
+	</div>
 
 @include('Partials.Footer')

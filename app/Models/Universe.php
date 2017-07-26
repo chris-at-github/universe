@@ -1,6 +1,19 @@
-<?php namespace App\Models;
+<?php
 
-class Universe extends \Illuminate\Database\Eloquent\Model {
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Universe extends Model {
+
+	use Traits\Uuid;
+
+	/**
+	 * Indicates if the IDs are auto-incrementing.
+	 *
+	 * @var bool
+	 */
+	public $incrementing = false;
 
 	/**
 	 * rules for validation before saving the model

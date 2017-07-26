@@ -11,8 +11,11 @@ class SettlementMigration extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('settlements', function(Blueprint $table) {
-			$table->increments('id');
+		Schema::create('settlement', function(Blueprint $table) {
+//			$table->increments('id');
+			$table->uuid('id');
+			$table->primary('id');
+
 			$table->string('name');
 			$table->timestamps();
 		});
@@ -24,6 +27,6 @@ class SettlementMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		//
+		Schema::drop('settlement');
 	}
 }

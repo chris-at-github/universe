@@ -7,5 +7,5 @@ class Settlement extends Universe {
 	 *
 	 * @var string
 	 */
-//	protected $table = 'settlements';
+	protected $table = 'settlement';
 }

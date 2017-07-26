@@ -21,8 +21,11 @@ class SettlementController extends UniverseController {
 	 * @return void
 	 */
 	public function store(Request $request) {
-		$name = 'S-' . time();
 
-		dd($name);
+		/* @var \App\Models\Settlement $settlement */
+		$settlement = app(\App\Models\Settlement::class);
+		$settlement->name = 'S-' . time();
+
+		$settlement->save();
 	}
 }

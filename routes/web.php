@@ -15,7 +15,7 @@ Route::get('/', array(
 	'uses' => 'GameController@index'
 ));
 
-Route::get('/settlement/{id}', array(
+Route::get('/settlement/{settlement}', array(
 	'as' => 'settlement.index',
 	'uses' => 'SettlementController@index'
 ));

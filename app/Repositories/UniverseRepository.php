@@ -88,8 +88,7 @@ class UniverseRepository {
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function findAll($columns = ['*']) {
-		return $this->fixtures;
-//		return $this->model->all();
+		return $this->model->all();
 	}
 
 	/**

@@ -11,20 +11,25 @@
 |
 */
 Route::get('/', array(
+	'as' => 'game.index',
+	'uses' => 'GameController@index'
+));
+
+Route::get('/settlement/{id}', array(
 	'as' => 'settlement.index',
 	'uses' => 'SettlementController@index'
 ));
 
-Route::get('/settlement/store', array(
+Route::post('/settlement/store', array(
 	'as' => 'settlement.store',
 	'uses' => 'SettlementController@store'
 ));
 
-Route::get('/settlement/{uuid}', function ($uuid) {
-	return response()->json(
-		app(\App\Repositories\SettlementRepository::class)->findBy(['uuid' => $uuid])->toArray()
-	);
-});
+//Route::get('/settlement/{uuid}', function ($uuid) {
+//	return response()->json(
+//		app(\App\Repositories\SettlementRepository::class)->findBy(['uuid' => $uuid])->toArray()
+//	);
+//});
 
 //Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
 //	dd($request->input('name'));

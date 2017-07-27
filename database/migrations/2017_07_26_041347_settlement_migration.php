@@ -11,7 +11,7 @@ class SettlementMigration extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('settlement', function(Blueprint $table) {
+		Schema::create('settlements', function(Blueprint $table) {
 //			$table->increments('id');
 			$table->uuid('id');
 			$table->primary('id');
@@ -27,6 +27,6 @@ class SettlementMigration extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::drop('settlement');
+		Schema::dropIfExists('settlements');
 	}
 }

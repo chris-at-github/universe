@@ -21,12 +21,7 @@ Route::get('/settlement/{settlement}', array(
 ));
 
 Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
-	return app(\App\Http\Controllers\SettlementController::class)->store($request->get('settlement'));
-
-//	array(
-//		'as' => 'settlement.store',
-//		'uses' => 'SettlementController@store'
-//	)
+	return app(\App\Http\Controllers\SettlementController::class)->store($request->get('settlement'), $request);
 })
 	->name('settlement.store')
 	->middleware('settlement');
@@ -35,8 +30,4 @@ Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
 //	return response()->json(
 //		app(\App\Repositories\SettlementRepository::class)->findBy(['uuid' => $uuid])->toArray()
 //	);
-//});
-
-//Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
-//	dd($request->input('name'));
 //});

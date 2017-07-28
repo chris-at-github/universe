@@ -20,10 +20,13 @@ class SettlementController extends UniverseController {
 
 	/**
 	 * @param Settlement $settlement
+	 * @param Request $request
 	 * @return void
 	 */
-	public function store(Settlement $settlement) {
-		dd($settlement);
+	public function store(Settlement $settlement, Request $request) {
+		if($settlement->store($request->all()) === true) {
+			return response()->redirectToRoute('settlement.index', ['settlement' => $settlement->id]);
+		}
 
 //		dd(\request());
 

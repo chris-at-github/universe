@@ -1,6 +1,6 @@
 @include('Partials.Header')
 
-	@include('Partials.Settlement.Form')
+	@include('Partials.Settlement.Form', ['settlement' => $settlement])
 
 	@if(empty($settlements) === false)
 		<ul class="object-listing">

@@ -13,6 +13,7 @@ class GameController extends UniverseController {
 	public function index() {
 		return view('Game.Index')
 			->with('game', [])
+			->with('settlement', app(\App\Models\Settlement::class))
 			->with('settlements', app(\App\Repositories\SettlementRepository::class)->findAll());
 	}
 }

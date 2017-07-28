@@ -1,15 +1,10 @@
-<form action="{{route('settlement.store')}}" method="post">
-	<div>
-		<input type="hidden" name="_token" value="{{csrf_token()}}">
-		@if(isset($settlement) === true)
-			<input type="hidden" name="settlement" value="{{$settlement->id}}">
-		@endif
-	</div>
+{!!Form::model($settlement, ['route' => 'settlement.store'])!!}
+  {!!Form::hidden('settlement', $settlement->id)!!}
 
 	<div>
 		<label for="name">Name:</label>
-		<input type="text" name="name" value="@if(isset($settlement) === true){{$settlement->name}}@endif">
+		{!!Form::text('name')!!}
 	</div>
 
 	<button type="submit">Speichern</button>
-</form>
+{!!Form::close()!!}

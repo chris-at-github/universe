@@ -14,20 +14,23 @@ class SettlementController extends UniverseController {
 	public function index(Settlement $settlement) {
 		return view('Settlement.Index')
 			->with('game', [
-				'settlement' => $settlement->toArray()
+				'settlement' => $settlement
 			]);
 	}
 
 	/**
-	 * @param Request $request
+	 * @param Settlement $settlement
 	 * @return void
 	 */
-	public function store(Request $request) {
+	public function store(Settlement $settlement) {
+		dd($settlement);
 
-		/* @var \App\Models\Settlement $settlement */
-		$settlement = app(\App\Models\Settlement::class);
-		$settlement->name = 'S-' . time();
+//		dd(\request());
 
-		$settlement->save();
+//		/* @var \App\Models\Settlement $settlement */
+//		$settlement = app(\App\Models\Settlement::class);
+//		$settlement->name = 'S-' . time();
+
+//		$settlement->save();
 	}
 }

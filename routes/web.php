@@ -20,10 +20,10 @@ Route::get('/settlement/{settlement}', array(
 	'uses' => 'SettlementController@index'
 ));
 
-Route::post('/settlement/store', array(
+Route::post('/settlement/store{settlement?}', array(
 	'as' => 'settlement.store',
 	'uses' => 'SettlementController@store'
-));
+))->middleware('settlement');
 
 //Route::get('/settlement/{uuid}', function ($uuid) {
 //	return response()->json(

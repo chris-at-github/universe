@@ -1,13 +1,11 @@
 @include('Partials.Header')
 
-	<div id="universe">
-		<uv-settlement />
-	</div>
+	{{--<div id="universe">--}}
+		{{--<uv-settlement />--}}
+	{{--</div>--}}
 
-	<hr>
+	{{--<hr>--}}
 
-	<form action="{{route('settlement.store')}}" method="get">
-		<button type="submit">Speichern</button>
-	</form>
+	@include('Partials.Settlement.Form', ['settlement' => $game['settlement']])
 
 @include('Partials.Footer')

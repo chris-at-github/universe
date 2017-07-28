@@ -20,10 +20,16 @@ Route::get('/settlement/{settlement}', array(
 	'uses' => 'SettlementController@index'
 ));
 
-Route::post('/settlement/store{settlement?}', array(
-	'as' => 'settlement.store',
-	'uses' => 'SettlementController@store'
-))->middleware('settlement');
+Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
+	return app(\App\Http\Controllers\SettlementController::class)->store($request->get('settlement'));
+
+//	array(
+//		'as' => 'settlement.store',
+//		'uses' => 'SettlementController@store'
+//	)
+})
+	->name('settlement.store')
+	->middleware('settlement');
 
 //Route::get('/settlement/{uuid}', function ($uuid) {
 //	return response()->json(

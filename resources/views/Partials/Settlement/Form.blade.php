@@ -6,5 +6,5 @@
 		{!!Form::text('name')!!}
 	</div>
 
-	<button type="submit">Speichern</button>
+	<button type="submit">Save</button>
 {!!Form::close()!!}

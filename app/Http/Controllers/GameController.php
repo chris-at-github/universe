@@ -14,6 +14,7 @@ class GameController extends UniverseController {
 		return view('Game.Index')
 			->with('game', [])
 			->with('settlement', app(\App\Models\Settlement::class))
+			->with('building', app(\App\Models\Building::class))
 			->with('settlements', app(\App\Repositories\SettlementRepository::class)->findAll());
 	}
 }

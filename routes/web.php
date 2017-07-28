@@ -15,6 +15,7 @@ Route::get('/', array(
 	'uses' => 'GameController@index'
 ));
 
+// Settlement
 Route::get('/settlement/{settlement}', array(
 	'as' => 'settlement.index',
 	'uses' => 'SettlementController@index'
@@ -26,8 +27,14 @@ Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
 	->name('settlement.store')
 	->middleware('settlement');
 
-//Route::get('/settlement/{uuid}', function ($uuid) {
-//	return response()->json(
-//		app(\App\Repositories\SettlementRepository::class)->findBy(['uuid' => $uuid])->toArray()
-//	);
-//});
+// Building
+Route::get('/building/{building}', array(
+	'as' => 'building.index',
+	'uses' => 'BuildingController@index'
+));
+
+Route::post('/building/store', function(\Illuminate\Http\Request $request) {
+	return app(\App\Http\Controllers\BuildingController::class)->store($request->get('building'), $request);
+})
+	->name('building.store')
+	->middleware('building');

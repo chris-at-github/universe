@@ -16,6 +16,6 @@ class Settlement extends Universe {
 	 * Get the comments for the blog post.
 	 */
 	public function buildings() {
-		return $this->hasMany(\App\Models\GameBuilding::class, 'settlement');
+		return $this->hasMany(\App\Models\GameBuilding::class, 'foreign');
 	}
 }

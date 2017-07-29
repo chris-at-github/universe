@@ -11,6 +11,6 @@ class GameBuilding extends Universe {
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
 	public function settlement() {
-		return $this->belongsTo(\App\Models\Settlement::class);
+		return $this->belongsTo(\App\Models\Settlement::class, 'foreign');
 	}
 }

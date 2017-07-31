@@ -11,11 +11,12 @@ class GameBuildingMigration extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('game_buildings', function (Blueprint $table) {
+		Schema::create('game_buildings', function(Blueprint $table) {
 			$table->uuid('id');
 			$table->primary('id');
 
-			$table->uuid('settlement');
+			$table->uuid('local');
+			$table->uuid('foreign');
 			$table->timestamps();
 		});
 	}

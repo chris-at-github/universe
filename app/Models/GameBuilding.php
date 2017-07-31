@@ -13,4 +13,11 @@ class GameBuilding extends Universe {
 	public function settlement() {
 		return $this->belongsTo(\App\Models\Settlement::class, 'foreign');
 	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 */
+	public function building() {
+		return $this->hasOne(\App\Models\Building::class, 'id', 'local');
+	}
 }

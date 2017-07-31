@@ -21,7 +21,7 @@ class SettlementController extends UniverseController {
 	/**
 	 * @param Settlement $settlement
 	 * @param Request $request
-	 * @return void
+	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Settlement $settlement, Request $request) {
 		if($settlement->store($request->all()) === true) {

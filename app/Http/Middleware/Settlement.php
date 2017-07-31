@@ -8,14 +8,14 @@ class Settlement {
 	 * @param  \Closure $next
 	 * @return mixed
 	 */
-	public function handle($request, \Closure $next) {
+	public function handle(&$request, \Closure $next) {
 		if($request->has('settlement') === true) {
 			if(($settlement = app(\App\Repositories\SettlementRepository::class)->find($request->get('settlement'))) instanceof \App\Models\Settlement) {
-				$request->attributes->replace(['settlement' => $settlement]);
+				$request->attributes->add(['settlement' => $settlement]);
 			}
 
 		} elseif(array_key_exists('settlement', $request->all()) === true) {
-			$request->attributes->replace(['settlement' => app(\App\Models\Settlement::class)]);
+			$request->attributes->add(['settlement' => app(\App\Models\Settlement::class)]);
 		}
 
 		return $next($request);

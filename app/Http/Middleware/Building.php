@@ -11,11 +11,11 @@ class Building {
 	public function handle($request, \Closure $next) {
 		if($request->has('building') === true) {
 			if(($building = app(\App\Repositories\BuildingRepository::class)->find($request->get('building'))) instanceof \App\Models\Building) {
-				$request->attributes->replace(['building' => $building]);
+				$request->attributes->add(['building' => $building]);
 			}
 
 		} elseif(array_key_exists('building', $request->all()) === true) {
-			$request->attributes->replace(['building' => app(\App\Models\Building::class)]);
+			$request->attributes->add(['building' => app(\App\Models\Building::class)]);
 		}
 
 		return $next($request);

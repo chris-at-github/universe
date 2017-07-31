@@ -27,6 +27,16 @@ Route::post('/settlement/store', function(\Illuminate\Http\Request $request) {
 	->name('settlement.store')
 	->middleware('settlement');
 
+Route::post('/settlement/building/create', function(\Illuminate\Http\Request $request) {
+	return app(\App\Http\Controllers\SettlementController::class)->createBuilding(
+		$request->get('settlement'),
+		$request->get('building'),
+		$request);
+})
+	->name('settlement.createBuilding')
+	->middleware('settlement')
+	->middleware('building');
+
 // Building
 Route::get('/building/{building}', array(
 	'as' => 'building.index',

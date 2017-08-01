@@ -17,6 +17,11 @@
 </fieldset>
 
 <fieldset>
+	<legend>Object</legend>
+	@include('Partials.Object.Form', ['object' => $object])
+</fieldset>
+
+<fieldset>
 	<legend>Building</legend>
 
 	@include('Partials.Building.Form', ['building' => $building])

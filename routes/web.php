@@ -15,6 +15,20 @@ Route::get('/', array(
 	'uses' => 'GameController@index'
 ));
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Objects
+Route::get('/object/{object}', array(
+	'as' => 'object.index',
+	'uses' => 'ObjectController@index'
+));
+
+Route::post('/object/store', function(\Illuminate\Http\Request $request) {
+	return app(\App\Http\Controllers\ObjectController::class)->store($request->get('object'), $request);
+})
+	->name('object.store')
+	->middleware('object');
+
+// ---------------------------------------------------------------------------------------------------------------------
 // Settlement
 Route::get('/settlement/{settlement}', array(
 	'as' => 'settlement.index',

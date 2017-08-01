@@ -40,10 +40,10 @@ class SettlementController extends UniverseController {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function createBuilding(Settlement $settlement, Building $building, Request $request) {
-		dd($settlement);
-		dd($building);
-//		if($settlement->store($request->all()) === true) {
-//			return response()->redirectToRoute('settlement.index', ['settlement' => $settlement->id]);
-//		}
+		$settlement->buildings()->create([
+			'local' => $building->id
+		]);
+
+		return response()->redirectToRoute('settlement.index', ['settlement' => $settlement->id]);
 	}
 }

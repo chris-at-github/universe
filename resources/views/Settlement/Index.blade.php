@@ -15,4 +15,18 @@
 	@include('Partials.Settlement.CreateBuilding', ['settlement' => $game['settlement'], 'buildings' => $game['buildings']])
 </fieldset>
 
+@if(count($game['settlement']->buildings) !== 0)
+  <fieldset>
+    <legend>Buildings</legend>
+
+    <ul class="object-listing">
+      @foreach($game['settlement']->buildings as $building)
+        <li>
+          <header>{{$building->building->name}}</header>
+        </li>
+      @endforeach
+    </ul>
+  </fieldset>
+@endif
+
 @include('Partials.Footer')

@@ -12,6 +12,8 @@ class ObjectController extends UniverseController {
 	 * @return \Illuminate\View\View
 	 */
 	public function index(\App\Models\Object $object) {
+
+
 		return view('Object.Index')
 			->with('game', [])
 			->with('object', $object);

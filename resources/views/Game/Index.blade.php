@@ -19,6 +19,7 @@
 <fieldset>
 	<legend>Object</legend>
 	@include('Partials.Object.Form', ['object' => $object])
+	@include('Partials.Object.Listing', ['objects' => $objects])
 </fieldset>
 
 <fieldset>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Object;
 
 class ObjectController extends UniverseController {
 
@@ -12,11 +11,10 @@ class ObjectController extends UniverseController {
 	 * @return \Illuminate\View\View
 	 */
 	public function index(\App\Models\Object $object) {
-
-
 		return view('Object.Index')
 			->with('game', [])
-			->with('object', $object);
+			->with('object', $object)
+			->with('types', app(\App\Managers\ObjectManager::class)->getTypes());
 	}
 
 	/**
